@@ -80,6 +80,7 @@ def batchify(data, bsz):
     data = data.narrow(0, 0, nbatch * bsz)
     # Evenly divide the data across the bsz batches.
     data = data.view(bsz, -1).t().contiguous()
+    print("data.shape", data.shape, "nbatch", nbatch, "bsz", bsz)
     return data.to(device)
 
 eval_batch_size = 10
